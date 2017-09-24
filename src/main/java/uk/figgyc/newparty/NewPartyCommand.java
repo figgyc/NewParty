@@ -8,6 +8,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import java.lang.Thread;
 
+
 public class NewPartyCommand extends CommandBase{
 
     @Override
@@ -29,13 +30,20 @@ public class NewPartyCommand extends CommandBase{
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
         if (args.length > 0) {
             EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
-            player.sendChatMessage("/p disband");
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            player.sendChatMessage("/p " + args[0]);
+
+            // This works
+            Thread thread = new Thread(() -> {
+                player.sendChatMessage("/p disband");
+
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                player.sendChatMessage("/p " + args[0]);
+            });
+
+            thread.start();
         } else {
             throw new WrongUsageException(getCommandUsage(sender));
         }
