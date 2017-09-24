@@ -1,0 +1,16 @@
+[
+{
+  "modid": "newparty",
+  "name": "NewParty",
+  "description": "Automatically disband and recreate a new party for quick duels.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["figgyc"],
+  "credits": "Thanks to 2pi for the idea",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
